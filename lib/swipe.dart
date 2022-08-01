@@ -19,6 +19,7 @@ class _MyHomePageState extends State<Swipe> {
     return Scaffold(
         body: LiquidSwipe(
       //enableSideReveal: true,
+      waveType: WaveType.liquidReveal,
       slideIconWidget: const Icon(
         Icons.arrow_back,
         color: Colors.black,
@@ -43,7 +44,7 @@ class _MyHomePageState extends State<Swipe> {
                 Text(
                   'Cinch',
                   style: TextStyle(
-                      color: Colors.grey,
+                      color: const Color(0xff3fe9cb),
                       fontSize: 80.w,
                       fontWeight: FontWeight.bold),
                 ),
@@ -52,7 +53,7 @@ class _MyHomePageState extends State<Swipe> {
           ),
         ),
         Container(
-          color: Color.fromARGB(255, 113, 200, 116),
+          color: const Color.fromARGB(255, 113, 200, 116),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -61,7 +62,7 @@ class _MyHomePageState extends State<Swipe> {
                 Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Center(
                         child: Text(
                           'Connect with  ',
@@ -86,7 +87,7 @@ class _MyHomePageState extends State<Swipe> {
           ),
         ),
         Container(
-          color: Color.fromARGB(255, 81, 154, 213),
+          color: const Color.fromARGB(255, 81, 154, 213),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +95,7 @@ class _MyHomePageState extends State<Swipe> {
                 Center(
                   child: Lottie.asset('assets/locations.json'),
                 ),
-                Center(
+                const Center(
                   child: Text(
                     ' Exclusively for ',
                     style: TextStyle(
@@ -103,17 +104,17 @@ class _MyHomePageState extends State<Swipe> {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Text(
+                const Text(
                   'Deaf & Mute',
                   style: TextStyle(
                       color: Color.fromARGB(255, 255, 255, 255),
                       fontSize: 35,
                       fontWeight: FontWeight.bold),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 SizedBox(
@@ -130,13 +131,13 @@ class _MyHomePageState extends State<Swipe> {
                           context,
                           PageTransition(
                               type: PageTransitionType.rightToLeft,
-                              child: Home()));
+                              child: const Home()));
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25.0),
                     ),
                     child: const Text(
-                      "Next\u200d",
+                      "Skip\u200d",
                       style: TextStyle(
                         color: NowUIColors.homeclr,
                         fontSize: 14,

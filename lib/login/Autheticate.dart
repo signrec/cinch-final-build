@@ -1,5 +1,4 @@
 import 'package:cinch/swipe.dart';
-import 'package:cinch/welcome/welcome.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +9,10 @@ class Authenticate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void didChangeDependencies() {
+      precacheImage(const AssetImage("assets/loader.json"), context);
+    }
+
     if (_auth.currentUser != null) {
       return HomeScreen();
     } else {

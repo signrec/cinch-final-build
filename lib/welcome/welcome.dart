@@ -1,11 +1,11 @@
 import 'package:cinch/login/LoginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:material_dialogs/material_dialogs.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../camera/screen_takepicture.dart';
-import '../resources/colors.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: Column(
         children: [
           Column(
@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
                     Text("Welcome to Cinch",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: const Color.fromARGB(255, 0, 0, 0),
                           fontSize: 20.w,
                         )),
                     SizedBox(
@@ -63,20 +63,20 @@ class _HomeState extends State<Home> {
                       minWidth: 335.0,
                       height: 50.0,
                       child: FlatButton(
-                        textColor: Color.fromARGB(255, 213, 0, 0),
+                        textColor: const Color.fromARGB(255, 213, 0, 0),
                         color: Colors.blue,
                         onPressed: () {
                           Navigator.push(
                               context,
                               PageTransition(
                                   type: PageTransitionType.rightToLeft,
-                                  child: const TakePicture()));
+                                  child: LoginScreen()));
                         },
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25.0),
                         ),
                         child: const Text(
-                          "Register Later\u200d",
+                          "Login / Signup\u200d",
                           style: TextStyle(
                             color: Color.fromARGB(255, 255, 255, 255),
                             fontSize: 14,
@@ -100,7 +100,7 @@ class _HomeState extends State<Home> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(25))),
                         ),
-                        child: const Text('Login / SignUp',
+                        child: const Text('Open Translator',
                             style: TextStyle(
                               color: Colors.blue,
                               fontSize: 14,
@@ -108,11 +108,55 @@ class _HomeState extends State<Home> {
                               height: 1.5,
                             )),
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              PageTransition(
-                                  type: PageTransitionType.rightToLeft,
-                                  child: LoginScreen()));
+                          Dialogs.bottomMaterialDialog(
+                            color: Colors.white,
+                            titleStyle: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15.w,
+                            )),
+                            msgStyle: GoogleFonts.poppins(
+                                textStyle: TextStyle(
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 10.w,
+                            )),
+                            msg: 'You could only recognise Alphabets',
+                            title: 'Hold the Camera Steadily',
+                            lottieBuilder:
+                                Lottie.asset('assets/cameraloading.json'),
+                            context: context,
+                            actions: [
+                              Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(18),
+                                      ),
+                                      minimumSize: const Size(140, 52),
+                                      primary: Colors.blue,
+                                    ),
+                                    onPressed: () {
+                                      Navigator.pushReplacement(
+                                          context,
+                                          PageTransition(
+                                              type: PageTransitionType
+                                                  .rightToLeft,
+                                              child: const TakePicture()));
+                                    },
+                                    child: Text(
+                                      "Open Translator",
+                                      style: GoogleFonts.poppins(
+                                          textStyle: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 18)),
+                                    )),
+                              ),
+                            ],
+                          );
                         },
                       ),
                     ),

@@ -10,7 +10,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:material_dialogs/material_dialogs.dart';
 
@@ -170,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                               child: TextField(
                                 controller: _search,
                                 decoration: InputDecoration(
-                                  prefixIcon: Icon(Icons.search),
+                                  prefixIcon: const Icon(Icons.search),
                                   hintText: "Search for People",
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
@@ -314,12 +313,6 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                           color: Colors.white,
                                         ),
                                         onPressed: () {
-                                          // Navigator.push(
-                                          //     context,
-                                          //     PageTransition(
-                                          //         type: PageTransitionType
-                                          //             .rightToLeft,
-                                          //         child: const TakePicture()));
                                           Dialogs.bottomMaterialDialog(
                                             color: Colors.white,
                                             titleStyle: GoogleFonts.poppins(

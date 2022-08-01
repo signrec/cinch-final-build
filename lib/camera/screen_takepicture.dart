@@ -15,6 +15,7 @@ class TakePicture extends StatefulWidget {
 }
 
 class _TakePictureState extends State<TakePicture> {
+  @override
   void initState() {
     super.initState();
 
@@ -54,55 +55,9 @@ class _TakePictureState extends State<TakePicture> {
                       height: size.height / 2,
                     ),
                   ),
-                  // TextButton(
-                  //   onPressed: () async {
-                  //     await availableCameras().then((value) => Navigator.push(
-                  //           context,
-                  //           MaterialPageRoute(
-                  //             builder: (context) => OpenCamera(
-                  //               cameras: value,
-                  //             ),
-                  //           ),
-                  //         ));
-                  //   },
-                  CircularProgressIndicator(),
-
-                  // Text(
-                  //   "Open Translator",
-                  //   style: GoogleFonts.lato(
-                  //       textStyle: const TextStyle(
-                  //     fontWeight: FontWeight.w700,
-                  //     fontSize: 15,
-                  //   )),
-                  // ),
+                  const CircularProgressIndicator(),
                 ],
               ),
-              // child: TextButton(
-              //   onPressed: () async {
-              //     await availableCameras().then((value) => Navigator.push(
-              //           context,
-              //           MaterialPageRoute(
-              //             builder: (context) => OpenCamera(
-              //               cameras: value,
-              //             ),
-              //           ),
-              //         ));
-              //   },
-              //   child: const Text(
-              //     "Open Translator",
-              //     style: TextStyle(
-              //         color: Color.fromARGB(255, 94, 125, 216), fontSize: 40),
-              //   ),
-
-              //   // Text(
-              //   //   "Open Translator",
-              //   //   style: GoogleFonts.lato(
-              //   //       textStyle: const TextStyle(
-              //   //     fontWeight: FontWeight.w700,
-              //   //     fontSize: 15,
-              //   //   )),
-              //   // ),
-              // ),
             ),
           ),
         ));

@@ -3,6 +3,7 @@ import 'package:cinch/login/Methods.dart';
 import 'package:cinch/login/ResetPassword.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../chat/HomeScreen.dart';
 
@@ -15,7 +16,9 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   bool isLoading = false;
-  final snackBar = const SnackBar(content: Text('Please fill all the fields!'));
+  final snackBar = const SnackBar(
+      behavior: SnackBarBehavior.fixed,
+      content: Text('Please fill all the fields!'));
   final snackBar2 = const SnackBar(content: Text('Incorrect Login details'));
 
   @override
@@ -73,9 +76,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: size.width / 1.4,
                     height: size.height / 3,
                   ),
-                  // SizedBox(
-                  //   height: size.height / 10,
-                  // ),
                   Container(
                     width: size.width,
                     alignment: Alignment.center,
@@ -99,10 +99,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             onPressed: () {
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                      builder: (_) => const ResetPassword()));
+                                  PageTransition(
+                                      type: PageTransitionType.rightToLeft,
+                                      child: const ResetPassword()));
                             },
-                            child: const Text("Forget Password?")),
+                            child: const Text("Forgot Password?")),
                       ),
                     ],
                   ),
@@ -142,13 +143,13 @@ class _LoginScreenState extends State<LoginScreen> {
           logIn(_email.text, _password.text).then((user) {
             if (user != null) {
               //snackbar
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text('Login Sucessfull')));
+              ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Login Sucessfull')));
               print("Login Sucessfull");
               setState(() {
                 isLoading = false;
               });
-              Navigator.push(
+              Navigator.pushReplacement(
                   context, MaterialPageRoute(builder: (_) => HomeScreen()));
             } else {
               ScaffoldMessenger.of(context).showSnackBar(snackBar2);

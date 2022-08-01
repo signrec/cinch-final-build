@@ -37,16 +37,10 @@ Future<User?> createAccount(
         .doc(placeSelected)
         .collection('chats')
         .add({
-      "message": "${_auth.currentUser!.displayName} Joined This Group.",
+      "message": "$name Joined This Group.",
       "type": "notify",
+      "time": FieldValue.serverTimestamp()
     });
-
-    // await _firestore.collection('groups').doc(placeSelected).update({
-    //   "members": await _firestore
-    //       .collection('users')
-    //       .doc(_auth.currentUser!.uid)
-    //       .get(),
-    // });
 
     return userCrendetial.user;
   } catch (e) {

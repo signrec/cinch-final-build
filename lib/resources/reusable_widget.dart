@@ -18,7 +18,8 @@ TextField reusableTextField(String text, IconData icon, bool isPasswordType,
     enableSuggestions: !isPasswordType,
     autocorrect: !isPasswordType,
     cursorColor: const Color.fromARGB(255, 0, 0, 0),
-    style: TextStyle(color: Colors.white.withOpacity(0.9)),
+    style:
+        TextStyle(color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.9)),
     decoration: InputDecoration(
       prefixIcon: Icon(icon),
       hintText: text,
@@ -43,7 +44,7 @@ Container firebaseUIButton(BuildContext context, String title, Function onTap) {
       onPressed: () {
         onTap();
       },
-      child: Text("Reset Password"),
+      child: const Text("Reset Password"),
       // Container(
       // height: 100,
       // width: 500,
