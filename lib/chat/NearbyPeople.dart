@@ -37,7 +37,7 @@ class _NearbyPeopleState extends State<NearbyPeople> {
     final FirebaseAuth _auth = FirebaseAuth.instance;
 
     return ListView.builder(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         itemCount: _users!.length,
         itemBuilder: ((context, index) => ListTile(
               minVerticalPadding: 10,
@@ -88,12 +88,12 @@ class _NearbyPeopleState extends State<NearbyPeople> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Container(
+                          child: SizedBox(
                             height: size.height / 20,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
+                                const Text(
                                   "People Near ",
                                   style: TextStyle(
                                       color: Color.fromARGB(255, 0, 0, 0),
@@ -102,7 +102,7 @@ class _NearbyPeopleState extends State<NearbyPeople> {
                                 ),
                                 Text(
                                   userlist[0]['place'],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.grey,
                                       fontSize: 20,
                                       fontWeight: FontWeight.w500),
@@ -111,7 +111,7 @@ class _NearbyPeopleState extends State<NearbyPeople> {
                             ),
                           ),
                         ),
-                        Container(
+                        SizedBox(
                             height: size.height - 90.w, child: _buildList()),
                       ],
                     ),
@@ -144,9 +144,6 @@ class _NearbyPeopleState extends State<NearbyPeople> {
       print(userlist.length);
 
       for (var user in doc.docs) {
-        // user.data()['name'] == _auth.currentUser!.displayName
-        //     ? Container()
-        //     :
         users.add((user.data())["name"]);
       }
 

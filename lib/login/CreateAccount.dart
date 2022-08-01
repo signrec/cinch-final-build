@@ -119,7 +119,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 18,
                   ),
                   Lottie.asset(
@@ -194,6 +194,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         if (value == null) {
                           return 'Please select location.';
                         }
+                        return null;
                       },
                       onChanged: (newValue) {
                         setState(() {
@@ -252,7 +253,7 @@ class _CreateAccountState extends State<CreateAccount> {
               ScaffoldMessenger.of(context).showSnackBar(snackBarsuccess);
             } else {
               //snackbar
-              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                   content:
                       Text('Try with different Email / Password Combination')));
               print("Login Failed");
