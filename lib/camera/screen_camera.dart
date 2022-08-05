@@ -85,81 +85,83 @@ class _OpenCameraState extends State<OpenCamera> {
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
-            body: Container(
-          color: Colors.black,
-          child: Center(
-            child: Column(
-              children: [
-                Stack(
-                  children: [
-                    Center(
-                      child: Container(
-                          height: 710.1.w,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(30.0),
-                              topLeft: Radius.circular(30.0),
-                              bottomLeft: Radius.circular(30.0),
-                              bottomRight: Radius.circular(30.0),
+            body: SingleChildScrollView(
+          child: Container(
+            color: Colors.black,
+            child: Center(
+              child: Column(
+                children: [
+                  Stack(
+                    children: [
+                      Center(
+                        child: Container(
+                            height: MediaQuery.of(context).size.height,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(30.0),
+                                topLeft: Radius.circular(30.0),
+                                bottomLeft: Radius.circular(30.0),
+                                bottomRight: Radius.circular(30.0),
+                              ),
                             ),
+                            child: CameraPreview(cameraController)),
+                      ),
+                      Padding(
+                          padding: EdgeInsets.only(
+                            left: 14.w,
+                            right: 18.w,
+                            top: 18.h,
                           ),
-                          child: CameraPreview(cameraController)),
-                    ),
-                    Padding(
-                        padding: EdgeInsets.only(
-                          left: 14.w,
-                          right: 18.w,
-                          top: 18.h,
-                        ),
-                        child: Row(children: [
-                          IconButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon: const Icon(Icons.arrow_back),
-                            splashColor: const Color(0xff121421),
-                            iconSize: 20.w,
-                            color: Colors.white,
-                          ),
-                        ])),
-                    Positioned(
-                        bottom: 0,
-                        width: MediaQuery.of(context).size.width,
-                        child: Center(
-                            child: Container(
-                          height: 60.w,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            color: const Color.fromRGBO(39, 42, 44, 1)
-                                .withOpacity(0.7),
-                            borderRadius: const BorderRadius.only(
-                              topRight: Radius.circular(30.0),
-                              topLeft: Radius.circular(30.0),
-                              // bottomLeft: Radius.circular(30.0),
-                              // bottomRight: Radius.circular(30.0),
+                          child: Row(children: [
+                            IconButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              icon: const Icon(Icons.arrow_back),
+                              splashColor: const Color(0xff121421),
+                              iconSize: 20.w,
+                              color: Colors.white,
                             ),
-                            boxShadow: const [
-                              BoxShadow(color: Colors.black12, blurRadius: 5)
-                            ],
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.all(20.w),
-                            child: Text(output,
-                                style:
-                                    // GoogleFonts.ubuntu(textStyle:
-                                    TextStyle(
-                                        fontSize: 18.w,
-                                        color: const Color.fromARGB(
-                                            255, 208, 204, 204)
-                                        // ),
-                                        ),
-                                textAlign: TextAlign.center),
-                          ),
-                        )))
-                  ],
-                ),
-              ],
+                          ])),
+                      Positioned(
+                          bottom: 0,
+                          width: MediaQuery.of(context).size.width,
+                          child: Center(
+                              child: Container(
+                            height: 80.w,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                              color: const Color.fromRGBO(39, 42, 44, 1)
+                                  .withOpacity(0.7),
+                              borderRadius: const BorderRadius.only(
+                                topRight: Radius.circular(30.0),
+                                topLeft: Radius.circular(30.0),
+                                // bottomLeft: Radius.circular(30.0),
+                                // bottomRight: Radius.circular(30.0),
+                              ),
+                              boxShadow: const [
+                                BoxShadow(color: Colors.black12, blurRadius: 5)
+                              ],
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 20.w),
+                              child: Text(output,
+                                  style:
+                                      // GoogleFonts.ubuntu(textStyle:
+                                      TextStyle(
+                                          fontSize: 18.w,
+                                          color: const Color.fromARGB(
+                                              255, 208, 204, 204)
+                                          // ),
+                                          ),
+                                  textAlign: TextAlign.center),
+                            ),
+                          )))
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         )),

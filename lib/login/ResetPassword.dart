@@ -90,15 +90,38 @@ class _ResetPasswordState extends State<ResetPassword> {
                         const SizedBox(
                           height: 20,
                         ),
-                        firebaseUIButton(context, "Reset Password", () {
-                          FirebaseAuth.instance
-                              .sendPasswordResetEmail(
-                                  email: _emailTextController.text)
-                              .then((value) => Navigator.of(context).pop());
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                  content: Text('Password Reset Link Sent')));
-                        })
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                          onPressed: () {
+                            FirebaseAuth.instance
+                                .sendPasswordResetEmail(
+                                    email: _emailTextController.text)
+                                .then((value) => Navigator.of(context).pop());
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text('Password Reset Link Sent')));
+                          },
+                          child: Container(
+                              height: size.height / 15,
+                              width: size.width / 2,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: Colors.blue,
+                              ),
+                              alignment: Alignment.center,
+                              child: const Text(
+                                "Reset Password",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )),
+                        ),
                       ],
                     ),
                   ),

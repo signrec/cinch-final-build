@@ -2,6 +2,7 @@ import 'package:cinch/login/CreateAccount.dart';
 import 'package:cinch/login/Methods.dart';
 import 'package:cinch/login/ResetPassword.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -39,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     alignment: Alignment.centerLeft,
                     width: size.width / 0.5,
                     child: Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10),
                       child: IconButton(
                           icon: const Icon(Icons.arrow_back_ios),
                           onPressed: () {
@@ -82,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: field(size, "Email", Icons.mail, _email, false),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 18.0),
+                    padding: EdgeInsets.only(top: 18.w),
                     child: Container(
                       width: size.width,
                       alignment: Alignment.center,
@@ -134,6 +135,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget customButton(Size size) {
     return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+      ),
       onPressed: () {
         if (_email.text.isNotEmpty && _password.text.isNotEmpty) {
           setState(() {
@@ -149,8 +155,10 @@ class _LoginScreenState extends State<LoginScreen> {
               setState(() {
                 isLoading = false;
               });
-              Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (_) => HomeScreen()));
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (_) => HomeScreen()),
+                  (route) => false);
             } else {
               ScaffoldMessenger.of(context).showSnackBar(snackBar2);
               setState(() {
@@ -166,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
           height: size.height / 15,
           width: size.width / 2,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(15),
             color: Colors.blue,
           ),
           alignment: Alignment.center,

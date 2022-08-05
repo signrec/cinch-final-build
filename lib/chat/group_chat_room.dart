@@ -190,25 +190,32 @@ class GroupChatRoom extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
               margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
               decoration: BoxDecoration(
-                border: Border.all(
-                    color: chatMap['sendby'] == _auth.currentUser!.displayName
-                        ? Colors.green
-                        : const Color.fromARGB(255, 126, 197, 255)),
-                borderRadius: BorderRadius.circular(15),
-                color: chatMap['sendby'] == _auth.currentUser!.displayName
-                    ? Colors.white
-                    : const Color.fromARGB(255, 126, 197, 255),
-              ),
+                  border: Border.all(
+                    color: chatMap['sendBy'] == _auth.currentUser!.displayName
+                        ? const Color.fromARGB(255, 18, 222, 103)
+                        : const Color.fromARGB(255, 18, 178, 222),
+                  ),
+                  borderRadius: BorderRadius.circular(15),
+                  color: chatMap['sendBy'] == _auth.currentUser!.displayName
+                      ? Colors.white
+                      : const Color.fromARGB(255, 97, 172, 233)),
               child: Column(
+                crossAxisAlignment:
+                    chatMap['sendBy'] == _auth.currentUser!.displayName
+                        ? CrossAxisAlignment.end
+                        : CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    chatMap['sendBy'],
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      color: chatMap['sendby'] == _auth.currentUser!.displayName
-                          ? Colors.black
-                          : Colors.white,
+                  SizedBox(
+                    child: Text(
+                      chatMap['sendBy'],
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color:
+                            chatMap['sendBy'] == _auth.currentUser!.displayName
+                                ? Colors.black
+                                : Colors.white,
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -219,7 +226,7 @@ class GroupChatRoom extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      color: chatMap['sendby'] == _auth.currentUser!.displayName
+                      color: chatMap['sendBy'] == _auth.currentUser!.displayName
                           ? Colors.black
                           : Colors.white,
                     ),
@@ -234,7 +241,7 @@ class GroupChatRoom extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               border: Border.all(
-                color: chatMap['sendby'] == _auth.currentUser!.displayName
+                color: chatMap['sendBy'] == _auth.currentUser!.displayName
                     ? Colors.green
                     : const Color.fromARGB(255, 126, 197, 255),
               )),

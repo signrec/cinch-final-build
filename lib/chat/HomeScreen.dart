@@ -183,12 +183,17 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             height: size.height / 50,
                           ),
                           ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
                             onPressed: onSearch,
                             child: Container(
                                 height: size.height / 20,
                                 width: size.width / 4,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(5),
+                                    borderRadius: BorderRadius.circular(15),
                                     color: Colors.blue),
                                 alignment: Alignment.center,
                                 child: const Text(
@@ -243,7 +248,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                             BorderRadius.circular(100)),
                                     child: IconButton(
                                       icon: const Icon(
-                                        Icons.connect_without_contact,
+                                        Icons.search,
                                         color: Colors.white,
                                       ),
                                       onPressed: () {
@@ -334,45 +339,41 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                                 'assets/cameraloading.json'),
                                             context: context,
                                             actions: [
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(20.0),
-                                                child: ElevatedButton(
-                                                    style: ElevatedButton
-                                                        .styleFrom(
-                                                      shape:
-                                                          RoundedRectangleBorder(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(18),
-                                                      ),
-                                                      minimumSize:
-                                                          const Size(140, 52),
-                                                      primary: Colors.blue,
+                                              ElevatedButton(
+                                                  style:
+                                                      ElevatedButton.styleFrom(
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              18),
                                                     ),
-                                                    onPressed: () {
-                                                      Navigator.pushReplacement(
-                                                          context,
-                                                          PageTransition(
-                                                              type: PageTransitionType
-                                                                  .rightToLeft,
-                                                              child:
-                                                                  const TakePicture()));
-                                                    },
-                                                    child: Text(
-                                                      "Open Translator",
-                                                      style: GoogleFonts.poppins(
-                                                          textStyle:
-                                                              const TextStyle(
-                                                                  color: Colors
-                                                                      .white,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  fontSize:
-                                                                      18)),
-                                                    )),
-                                              ),
+                                                    minimumSize:
+                                                        Size(140.w, 52.w),
+                                                    primary: Colors.blue,
+                                                  ),
+                                                  onPressed: () {
+                                                    Navigator.pushReplacement(
+                                                        context,
+                                                        PageTransition(
+                                                            type:
+                                                                PageTransitionType
+                                                                    .rightToLeft,
+                                                            child:
+                                                                const TakePicture()));
+                                                  },
+                                                  child: Text(
+                                                    "Open Translator",
+                                                    style: GoogleFonts.poppins(
+                                                        textStyle:
+                                                            const TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontSize: 18)),
+                                                  )),
                                             ],
                                           );
                                         }),
@@ -405,45 +406,39 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                               'assets/cameraloading.json'),
                                           context: context,
                                           actions: [
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(20.0),
-                                              child: ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              18),
-                                                    ),
-                                                    minimumSize:
-                                                        const Size(140, 52),
-                                                    primary: Colors.blue,
+                                            ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            18),
                                                   ),
-                                                  onPressed: () {
-                                                    Navigator.pushReplacement(
-                                                        context,
-                                                        PageTransition(
-                                                            type:
-                                                                PageTransitionType
-                                                                    .rightToLeft,
-                                                            child:
-                                                                const TakePicture()));
-                                                  },
-                                                  child: Text(
-                                                    "Open Translator",
-                                                    style: GoogleFonts.poppins(
-                                                        textStyle:
-                                                            const TextStyle(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                fontSize: 18)),
-                                                  )),
-                                            ),
+                                                  minimumSize:
+                                                      Size(140.w, 52.w),
+                                                  primary: Colors.blue,
+                                                ),
+                                                onPressed: () {
+                                                  Navigator.pushReplacement(
+                                                      context,
+                                                      PageTransition(
+                                                          type:
+                                                              PageTransitionType
+                                                                  .rightToLeft,
+                                                          child:
+                                                              const TakePicture()));
+                                                },
+                                                child: Text(
+                                                  "Open Translator",
+                                                  style: GoogleFonts.poppins(
+                                                      textStyle:
+                                                          const TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: 18)),
+                                                )),
                                           ],
                                         );
                                       }),
@@ -457,23 +452,100 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                         height: size.height / 30,
                       ),
 
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Center(
-                              child: OutlineButton(
-                                  child: const Text("Logout"),
-                                  onPressed: () {
-                                    logOut(context);
-                                    setStatus("Offline");
-                                  }),
-                            ),
-                          ],
-                        ),
-                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.only(bottom: 0),
+                      //   child: Column(
+                      //     mainAxisAlignment: MainAxisAlignment.end,
+                      //     children: [
+                      //       Center(
+                      //         child: OutlineButton(
+                      //             child: const Text("Logout"),
+                      //             onPressed: () {
+                      //               logOut(context);
+                      //               setStatus("Offline");
+                      //             }),
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
                     ],
+                  ),
+                  Center(
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          top: size.height / 20, left: size.width / 1.2),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Colors.blue),
+                                // color: Colors.blue,
+                                borderRadius: BorderRadius.circular(20)),
+                            child: IconButton(
+                                icon: const Icon(
+                                  Icons.logout,
+                                  color: Colors.blue,
+                                ),
+                                onPressed: () {
+                                  Dialogs.materialDialog(
+                                    color: Colors.white,
+                                    titleStyle: GoogleFonts.poppins(
+                                        textStyle: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15.w,
+                                    )),
+                                    msgStyle: GoogleFonts.poppins(
+                                        textStyle: TextStyle(
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 15.w,
+                                    )),
+                                    msg: 'You will be Logged Out',
+                                    title: 'Are You Sure?',
+                                    lottieBuilder:
+                                        Lottie.asset('assets/logout.json'),
+                                    context: context,
+                                    actions: [
+                                      ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(18),
+                                            ),
+                                            minimumSize: Size(70.w, 52.w),
+                                            primary: Colors.blue,
+                                          ),
+                                          onPressed: () {
+                                            logOut(context);
+                                            setStatus("Offline");
+                                          },
+                                          child: Text(
+                                            "Log Out",
+                                            style: GoogleFonts.poppins(
+                                                textStyle: const TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 18)),
+                                          )),
+                                    ],
+                                  );
+                                }),
+                          ),
+                          // TextButton(
+                          //     child: Text(
+                          //       "Log Out",
+                          //       style: TextStyle(fontSize: size.width / 40),
+                          //     ),
+                          //     onPressed: () {
+                          //       logOut(context);
+                          //       setStatus("Offline");
+                          //     })
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),

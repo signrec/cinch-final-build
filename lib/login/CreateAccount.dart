@@ -232,6 +232,11 @@ class _CreateAccountState extends State<CreateAccount> {
 
   Widget customButton(Size size) {
     return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+      ),
       onPressed: () {
         if (_name.text.isNotEmpty &&
             _email.text.isNotEmpty &&
@@ -248,14 +253,13 @@ class _CreateAccountState extends State<CreateAccount> {
                 isLoading = false;
               });
               getCurrentUserDetails();
-              Navigator.push(
+              Navigator.pushReplacement(
                   context, MaterialPageRoute(builder: (_) => LoginScreen()));
               ScaffoldMessenger.of(context).showSnackBar(snackBarsuccess);
             } else {
               //snackbar
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content:
-                      Text('Try with different Email / Password Combination')));
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(const SnackBar(content: Text('Login Failed')));
               print("Login Failed");
               setState(() {
                 isLoading = false;

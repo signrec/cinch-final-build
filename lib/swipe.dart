@@ -1,7 +1,9 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cinch/resources/colors.dart';
 import 'package:cinch/welcome/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
@@ -25,32 +27,53 @@ class _MyHomePageState extends State<Swipe> {
         color: Colors.black,
       ),
       pages: [
-        Container(
-          color: Colors.white,
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Center(
-                  child: Lottie.asset('assets/loader.json'),
+        Stack(
+          children: [
+            Container(
+              color: Colors.white,
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Lottie.asset('assets/loader.json'),
+                    ),
+                    Text(
+                      'Welcome to ',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25.w,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      'Cinch',
+                      style: TextStyle(
+                          color: const Color(0xff3fe9cb),
+                          fontSize: 80.w,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
-                Text(
-                  'Welcome to ',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25.w,
-                      fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  'Cinch',
-                  style: TextStyle(
-                      color: const Color(0xff3fe9cb),
-                      fontSize: 80.w,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
+              ),
             ),
-          ),
+            Positioned(
+              bottom: 20.h,
+              left: MediaQuery.of(context).size.width / 2 - 50.w,
+              child: DefaultTextStyle(
+                style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w300,
+                        fontSize: 14)),
+                child:
+                    AnimatedTextKit(isRepeatingAnimation: true, animatedTexts: [
+                  FadeAnimatedText(
+                    'Swipe to continue',
+                  )
+                ]),
+              ),
+            ),
+          ],
         ),
         Container(
           color: const Color.fromARGB(255, 113, 200, 116),
